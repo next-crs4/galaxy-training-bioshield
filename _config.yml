@@ -4,18 +4,18 @@
 permalink:           pretty
 
 # Setup
-title:               Training Course in Galaxy for Metagenomic Analysis on Targeted and Whole Genome Sequencing Data
+title:               Galaxy Training for Pathogen Genomics, AMR Detection & Virus ID
 tagline:             IZS3
-description:         Training Course on Galaxy for Istituto Zooprofilattico Sperimentale della Sardegna
-url:                 'https://next-crs4.github.io/galaxy-training-izs3'
+description:         Galaxy Training for Pathogen Genomics, AMR Detection & Virus ID is a hands-on course designed for biologists and bioinformaticians at Sassari University Hospital's Department of Hospital Hygiene, Epidemiology, and Infections.
+url:                 'https://next-crs4.github.io/galaxy-training-bioshield'
 baseurl:             ''
 twitter_username:
 github_username:  crs4
-pages_url: https://next-crs4.github.io/galaxy-training-izs3
-github_url: https://github.com/next-crs4/galaxy-training-izs3
+pages_url: https://next-crs4.github.io/galaxy-training-bioshield
+github_url: https://github.com/next-crs4/galaxy-training-bioshield
 
 # Custom vars
-version:             23.09
+version:             26.01
 
 # Build settings
 markdown: kramdown
