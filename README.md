@@ -1,6 +1,6 @@
-# Training course on Galaxy for metagenomic analysis on targeting and whole genome data 
+# Galaxy Training for Pathogen Genomics, AMR Detection & Virus ID 
 
-[ https://next-crs4.github.io/galaxy-training-izs3]( https://next-crs4.github.io/galaxy-training-izs3)
+[ https://next-crs4.github.io/galaxy-training-bioshield]( https://next-crs4.github.io/galaxy-training-bioshield)
 ## Welcome!
 
 
@@ -43,7 +43,7 @@
 The computing resources for this training have been provided by the
 CRS4 datacenter
 
-You will receive all the details to connect to Galaxy Instance: [https://izs3.crs4.it](https://izs3.crs4.it)
+You will receive all the details to connect to Galaxy Instance: [https://bioshield.crs4.it](https://bioshield.crs4.it)
 
 
 ## Agenda
