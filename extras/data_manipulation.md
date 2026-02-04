@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Data Manipulation
-summary: "How can I do basic data manipulation in Galaxy? Which tools are available to convert, reformat, filter, sort etc my text-based data?"
+summary: "Basic data manipulation in Galaxy, including filtering, sorting, and reformatting text-based datasets."
+hide: "yes"
 ---
 
 ---
@@ -31,7 +32,31 @@ The objective is to familiarize you with a large number of the most important da
 * event - Event 
 * medal - Gold, Silver, Bronze (or NA if no medal was won)
 
-![]({{site.url}}/images/olympic-dataset)
+---
+
+Here is an overview table of the different data manipulations in this tutorial
+
+| Operation            | Description                                                       | Galaxy Tool |
+|----------------------|-------------------------------------------------------------------|-------|
+| Convert format       | Change the file format                                           | Edit attributes |
+| Word count           | Count the number of lines, words and characters in a file        | Line/Word/Character count |
+| Sort on a column     | Change the order of the rows based on values in one or more columns | Sort  |
+| Filter               | Remove rows based on values in one or more columns               | Filter |
+| Counting             | Count occurrences of values in a column                          | Count, Datamash |
+| Group on a column    | Perform simple operations (count, mean, min, max, etc.)          | Group, Datamash |
+| Compute on rows      | Derive new column values from existing ones                      | Compute |
+| Find and Replace     | In a specific column                                             | Column Regex Find and Replace |
+| Find and Replace     | On every line                                                    | Regex Find and Replace |
+| Join two Datasets    | Join side by side on a specified field                           | Join two Datasets |
+| Concatenate datasets | Concatenate one after the other                                  | Concatenate datasets |
+| Remove Beginning     | Good for removing header lines                                   | Remove beginning of a file |
+| Select First lines   | Good for finding top 10s or saving header lines                  | Select first lines |
+| Cut Columns          | By header name                                                   | Remove columns by heading |
+| Cut Columns          | By column number                                                 | Cut columns from a table, Advanced Cut columns from a table |
+| Paste                | Two files side by side                                           | Paste |
+| Split file           | Based on values of a column                                      | Split |
+| Unique               | Remove duplicate rows                                            | Unique|
+
 
 ---
 
@@ -41,10 +66,10 @@ The objective is to familiarize you with a large number of the most important da
 2. Rename your history to be meaningful and easy to find.
 3. Upload the  dataset `olympics.tsv`
     ```shell 
-    https://zenodo.org/record/6803028/files/olympics.tsv
- 
+    https://zenodo.org/record/6803028/files/olympics.tsv 
     ```
 4. View <span class="fa fa-fw fa-eye"></span> the dataset
+    ![]({{site.url}}/images/olympic-dataset.png)
 5. Rename <span class="fa fa-fw fa-pencil"></span> the dataset to `olympics`
 
 <span class="fa fa-fw fa-question-circle"></span> **Question**
@@ -70,27 +95,42 @@ The objective is to familiarize you with a large number of the most important da
 We will sort the file in chronological order based on the year of the Olympic games (column ??)
 
 1. Open the `Sort - data in ascending or descending order` Tool
-   * *Sort Dataset”: olympics.tsv 
+   * *Number of header lines*: 1
+   * *Sort Dataset*: olympics.tsv 
    * *on column*: Column 12 
    * *in*: Ascending order 
-   * *Flavor”: Numeric sort
-2. **Execute**
-3. View <span class="fa fa-fw fa-eye"></span> the sorted dataset
-
+   * *Flavor*: Numeric sort
+2. **Run Tool**
+3. Rename <span class="fa fa-fw fa-pencil"></span> the resulting file to `Olympics in chronological order`
+4. View <span class="fa fa-fw fa-eye"></span> the sorted dataset
+5. <span class="fa fa-fw fa-question-circle"></span> **Question**
+    - Which athlete is listed at the top now? 
+    - Which discipline (sport) did they compete in?
 <p style="text-align:right"><a href="{{site.url}}{{page.url}}"><strong>Go Up</strong><span class="fa fa-fw fa-arrow-up"></span></a></p>
 ---
 
 ### Sort on multiple columns at once
 Now, we want to sort twice, first by year, an then within each year, we sort again alphabetically by name.
 
-1. **Re-run** <span class="fa fa-fw fa-again"></span> the
+1. **Re-run** <span class="fa fa-fw fa-refresh"></span> the `Sort - data in ascending or descending order` Tool
 2. All parameter from the first step should already be set for you, and should remain the same
 3. Insert Column selections:
    * *on column*: Column 2 
    * *in*: Ascending order 
    * *Flavor*: Alphabetical sort
-4. **Execute**
-5. View <span class="fa fa-fw fa-eye"></span> the sorted dataset
+4. **Run Tool**
+5. <span class="fa fa-fw fa-question-circle"></span> **Question**
+    - Which athlete is listed at the top now? 
+    - Which discipline (sport) did they compete in?
+6. View <span class="fa fa-fw fa-eye"></span> the sorted dataset
+
+<span class="fa fa-fw fa-gears"></span> **Exercises**
+-  Reverse the sort: 
+    1. Which athlete comes last by alphabet, in the most recent Olympics?
+  -  Sort by height:
+  1. What is the height of the tallest competing athlete? Which athlete(s) are of this height? 
+2. What is the shortest? 
+3. Who was the tallest athlete from the most recent Olympics? How tall were they?
 
 <p style="text-align:right"><a href="{{site.url}}{{page.url}}"><strong>Go Up</strong><span class="fa fa-fw fa-arrow-up"></span></a></p>
 ---
@@ -103,18 +143,14 @@ We will filter the file to show only winter Olympics
    - *Filter*: olympics.tsv
    - *With the following condition*: c13=='Winter'
    - *Number of header lines to skip*: 1
-3. **Execute**
+3. **Run Tool**
 4. View <span class="fa fa-fw fa-eye"></span> the filtered dataset
-
 5. <span class="fa fa-fw fa-question-circle"></span> **Question**
-1. How many lines are in this file? 
+   - How many lines are in this file?
+6.  **Re-run** <span class="fa fa-fw fa-refresh"></span> the step for the Summer Olympics 
+7. Rename <span class="fa fa-fw fa-pencil"></span> both 
 
-
-*  **Re-run** <span class="fa fa-fw fa-again"></span> the step for the Summer Olympics
-
-Rename <span class="fa fa-fw fa-pencil"></span> both 
-
-<span class="fa fa-fw fa-question-circle"></span> **Exercises**
+<span class="fa fa-fw fa-gears"></span> **Exercises**
 
 1. How many gold medals were handed out? 
 2. How many total medals? 
@@ -182,7 +218,7 @@ We will now determine how many different sport there were in each of the differe
 1. How many sport were in the first Olympics? How many in the latest?
 2. Which Olympics had the most different sports?
 
-<span class="fa fa-fw fa-question-circle"></span> **Exercises**
+<span class="fa fa-fw fa-gears"></span> **Exercises**
 
 1. Which country has had the most participations in the Olympics? 
 2. How many countries participated in the first Olympics? How many in the last?
@@ -270,7 +306,7 @@ The question we would like to answer here, is what is the average height for men
 2. View <span class="fa fa-fw fa-eye"></span> the result
 
 
-<span class="fa fa-fw fa-question-circle"></span> **Exercises**
+<span class="fa fa-fw fa-gears"></span> **Exercises**
 1. How tall is the shortest woman Badminton player to win a gold medal? 
 2. What is the average height and standard deviation of athletes from Denmark (DEN) in the 1964 Olympics?
 
@@ -353,7 +389,7 @@ As an example, let’s calculate the age of each athlete at the time of particip
 <span class="fa fa-fw fa-question-circle"></span> **Question**
 - How old was Arnaud Boetsch during his Olympic tennis participation?
 
-<span class="fa fa-fw fa-question-circle"></span> **Exercises**
+<span class="fa fa-fw fa-gears"></span> **Exercises**
 - Calculate BMI (weight/height<sup>2</sup>) for all athletes and add it as a new column directly after the existing height and weight columns.(Remember that our height is in cm, and the formula expects height in meters)
 
 <span class="fa fa-fw fa-lightbulb-o"></span> **Solutions**
@@ -361,7 +397,7 @@ As an example, let’s calculate the age of each athlete at the time of particip
   - *Input file*: olympics.tsv 
   - *Input has a header line with column names?*: Yes 
   - In *Expressions*:
-    - *Add expression: `int(c8)/(int(c7)*int(c7))*10000`
+    - *Add expression*: `int(c8)/(int(c7)*int(c7))*10000`
     - *Mode of the operation?*: Insert 
     - *Insert new column before existing column number*: 9 
     - *The new column name*: BMI 
@@ -418,7 +454,7 @@ Let’s say we would like to create a list of all unique athletes (id and name).
    * *From*: olympics.tsv
 2. View <span class="fa fa-fw fa-eye"></span> the result
 3. `Unique - occurrences of each record` tool with the following parameters: 
-   * File to scan for unique values*: output from the first step
+   * *File to scan for unique values*: output from the first step
 4. View <span class="fa fa-fw fa-eye"></span> the result
 
 <p style="text-align:right"><a href="{{site.url}}{{page.url}}"><strong>Go Up</strong><span class="fa fa-fw fa-arrow-up"></span></a></p>

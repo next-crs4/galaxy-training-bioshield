@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Getting data into Galaxy 
-summary: "How do I get my data into Galaxy? How do I get public data into Galaxy?"
+summary: "Importing local and public datasets into Galaxy."
 hide: yes
 ---
 

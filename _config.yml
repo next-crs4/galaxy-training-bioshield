@@ -5,7 +5,7 @@ permalink:           pretty
 
 # Setup
 title:               Galaxy Training for Pathogen Genomics, AMR Detection & Virus ID
-tagline:             IZS3
+tagline:             OMEGA
 description:         Galaxy Training for Pathogen Genomics, AMR Detection & Virus ID is a hands-on course designed for biologists and bioinformaticians at Sassari University Hospital's Department of Hospital Hygiene, Epidemiology, and Infections.
 url:                 'https://next-crs4.github.io/galaxy-training-bioshield'
 baseurl:             ''
