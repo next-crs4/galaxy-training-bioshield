@@ -9,7 +9,7 @@ hide: yes
 
 ## Many ways to get data into your workspace
 
-1. Import using Get Data sources e.g. UCSC, SRA 
+1. Import using Get Data sources e.g. UCSC, [SRA]({{site.url}}/extras/from_sra_to_galaxy) 
 2. Import from a Galaxy Data Library 
 3. Import using Upload File
    * Import from your computer 
