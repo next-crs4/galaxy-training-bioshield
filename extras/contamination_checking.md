@@ -47,9 +47,13 @@ we use a database containing DNA sequences of genomes whose taxonomy we already 
 the genome sequences are broken into **short pieces of length k** (called **k-mers**), usually **30bp**.
 
 1. examines the **k-mers** within the query sequence,
+
 2. searches for them in the **database**,
+
 3. looks for where these are placed within the **taxonomy tree** inside the database,
+
 4. makes the classification with the **most probable position**,
+
 5. then maps k-mers to the **lowest common ancestor (LCA)** of all genomes known to contain the given k-mer.
 
 <img src="{{site.url}}/images/kmers-kraken.jpg">
@@ -72,6 +76,16 @@ For this tutorial, we will use the [**PlusPF database**](https://benlangmead.git
 
 A **confidence score of 0.1** means that **at least 10%** of the k-mers should match entries in the database.
 This value can be reduced if a less restrictive taxonomic assignation is desired.
+
+<div style="border-left: 4px solid #d9534f; 
+            padding: 12px; 
+            background-color: #f8d7da; 
+            margin: 20px 0;">
+    <strong><span class="fa fa-fw fa-exclamation-triangle"></span> Warning:</strong>
+    The execution of this tool can take approximately 4 hours. 
+    To avoid unnecessary waiting time and server overload during the course, 
+    please retrieve the precomputed outputs from the shared history.
+    </div>
 
 `Kraken2` will create two outputs for each dataset: **Classification** and **Report**
 

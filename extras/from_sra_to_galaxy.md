@@ -26,19 +26,25 @@ in the **SRA** under **BioProject PRJNA622837** so that’s going to be our star
 ## Find the example data in the SRA
 
 1. Go to NCBI’s SRA page by pointing your browser to [https://www.ncbi.nlm.nih.gov/sra](https://www.ncbi.nlm.nih.gov/sra)
+
 2. In the search box enter `PRJNA622837[BioProject]`
    - **!!!** Oh, this finds a lot of samples (more than 22,200 at the time of writing)! This is because the BioProject ID we used is that of “SARS-CoV-2 Patient Sequencing from the Broad Institute”, which has seen many more sample submissions since the published study. Let’s refine our search a bit.
+   
 3. Replace your previous search with `PRJNA622837[BioProject] AND RNA-Seq[Strategy]`
    - This returns only those samples from the BioProject, for which the sequencing strategy was RNA-Seq. 
    - At the time of writing, 1908 hits are retained with this query, which is still more than the approximately 800 genomes mentioned in the publication, but we got a lot closer.
+   
 4. Instead of inspecting all 1908 hits one-by-one through the web interface, lets download the metadata for all samples in a single file
    - Click on the **Send to**: dropdown at the top of the search results list 
    - Under **Choose Destination**, select **Run Selector**
    - Click **Go**
+   
    <img src="{{site.url}}/images/sra-get_runinfo.png">
    - You will be taken to the SRA Run Selector page, where you can browse all of the metadata of all search hits rather conveniently.
+   
 5. In the **Select table**, click **Metadata** in the **Download column**
    - This will download the metadata for all retrieved sequencing runs as a comma-separated text file.
+   
    <img src="{{site.url}}/images/sra-metadata_from_run_selector.png">
 
 **NOTE!!!** Note that the file we just downloaded is not sequencing data itself. Rather, it is metadata describing the data itself
@@ -60,7 +66,8 @@ in the **SRA** under **BioProject PRJNA622837** so that’s going to be our star
 2. Upload the metadata file
 3. Inspect its contents
    - You will see that this file contains the same metadata that you could preview on the SRA Run Selector page.
-   <img src="{{site.url}}/images/sra-metadata.png">
+   
+<img src="{{site.url}}/images/sra-metadata.png">
    
 <p style="text-align:right"><a href="{{site.url}}{{page.url}}"><strong>Go Up</strong><span class="fa fa-fw fa-arrow-up"></span></a></p>
 ---

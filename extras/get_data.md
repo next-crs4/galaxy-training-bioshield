@@ -9,14 +9,22 @@ hide: yes
 
 ## Many ways to get data into your workspace
 
-1. Import using Get Data sources e.g. UCSC, [SRA]({{site.url}}/extras/from_sra_to_galaxy) 
+1. Import using Get Data sources e.g. UCSC, SRA (see dedicate [tutorial]({{site.url}}/extras/from_sra_to_galaxy))
+
 2. Import from a Galaxy Data Library 
+
 3. Import using Upload File
+
    * Import from your computer 
+   
    * Directly enter text 
+   
    * Import from a URL 
+   
    * Import using FTP 
+   
    * Import directly into Collection 
+   
    * Import using Rule Builder
 
 <p style="text-align:right"><a href="{{site.url}}{{page.url}}"><strong>Go Up</strong><span class="fa fa-fw fa-arrow-up"></span></a></p>
