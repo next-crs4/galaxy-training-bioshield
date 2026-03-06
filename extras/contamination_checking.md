@@ -66,13 +66,17 @@ For this tutorial, we will use the [**PlusPF database**](https://benlangmead.git
 ###  Assign taxonomic labels with Kraken2
 
 1. `Kraken2` Tool with the following parameters:
-- *Single or paired reads*: Paired Collection
-    - *Collection of paired reads*: Input paired collection
-- *Confidence*: 0.1
-- *Minimum Base Quality*: 10
-- In *Create Report*:
-    - *Print a report with aggregrate counts/clade to file*: Yes
-- *Select a Kraken2 database*: Prebuilt Refseq indexes: PlusPF
+    - *Single or paired reads*: Paired Collection
+        - *Collection of paired reads*: Input paired collection
+      
+    - *Confidence*: 0.1
+   
+    - *Minimum Base Quality*: 10
+   
+    - In *Create Report*:
+        - *Print a report with aggregrate counts/clade to file*: Yes
+   
+    - *Select a Kraken2 database*: Prebuilt Refseq indexes: PlusPF
 
 A **confidence score of 0.1** means that **at least 10%** of the k-mers should match entries in the database.
 This value can be reduced if a less restrictive taxonomic assignation is desired.
@@ -170,10 +174,10 @@ It works by re-distributing reads in the taxonomic tree:
 while reads assigned at the strain level are re-distributed upward to their parent species**
 
 1. `Bracken` Tool with the following parameters:
-- *Kraken report file*: Report output of Kraken
-- *Select a kmer distribution*: PlusPF  (same as for Kraken)
-- *Level*: Species
-- *Produce Kraken-Style Bracken report*: yes
+   - *Kraken report file*: Report output of Kraken
+   - *Select a kmer distribution*: PlusPF  (same as for Kraken)
+   - *Level*: Species
+   - *Produce Kraken-Style Bracken report*: yes
 
 **NOTE!** It is important to choose the same database that you also chose for Kraken2
 
